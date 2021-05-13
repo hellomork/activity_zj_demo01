@@ -1,0 +1,820 @@
+
+// 登录界面
+.wx-login-bg{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    background-color: #ffffff;
+    .kada-wx-login{
+      width: 100%;
+      height: 100%;
+      background-color: #ffffff;
+      // background-image: url(../assets/img/bg1.jpg);
+      // background-repeat: no-repeat;
+      // background-size: 100% 100%;
+      position: relative;
+      .kada-wx-img{
+        position: absolute;
+        left: 50%;
+        top: 1rem;
+        transform: translateX(-50%);
+          width: 5rem;
+          height: 5rem;
+      }
+      .kada-wx-logoimg{
+        position: absolute;
+        left: 50%;
+        top: .88rem;
+        transform: translateX(-50%);
+          width: 1.6rem;
+          height: 1.6rem;
+          margin: 0 auto;
+      }
+      .kada-login-buttom{
+        // padding: 2.25rem 0 0 0;
+        padding: 4.5rem .45rem 0 .45rem;
+        position: relative;
+        .kada-login-wx{
+          margin: 0 auto .48rem;
+          // width: 3.2rem;
+          width: 100%;
+          height: .88rem;
+          border-radius: .44rem;
+          background-color: $theme;
+          &>p{
+            font-size: .32rem;
+            color: #ffffff;
+            text-align: center;
+            line-height: .88rem;
+          }
+        }
+        .kada-login-mobile{
+          background-color: #ffffff;
+          border-radius: .44rem;
+          margin: 0 auto .48rem;
+          // width: 3.2rem;
+          width: 100%;
+          height: .88rem;
+          border: 1px solid $theme;
+          >p{
+            font-size: .32rem;
+            color: $theme;
+            text-align: center;
+            line-height: .88rem;
+          }
+        }
+      }
+      .kada-login-other{
+        text-align: center;
+        .kada-login-othertop{
+          width: 3rem;
+          margin: 0 auto .44rem;
+          position: relative;
+          p{
+            font-size: .28rem;
+            line-height: .4rem;
+            text-align: center;
+            padding: 0 .12rem;
+          }
+          &::before{
+              content: "";
+              width: .8rem;
+              height: .02rem;
+              background-color: rgb(216,216,216);
+              position: absolute;
+              left: 0;
+              top: 50%;
+              transform: translateY(-50%);
+          }
+          &::after{
+              content: "";
+              width: .8rem;
+              height: .02rem;
+              background-color: rgb(216,216,216);
+              position: absolute;
+              right: 0;
+              top: 50%;
+              transform: translateY(-50%);
+          }
+        }
+        .kada-login-othercom{
+          display: inline-block;
+          vertical-align: middle;
+          position: relative;
+          padding:  0 .52rem;
+          .kada-wx-svg{
+            width: .72rem;
+            height: .72rem;
+            border-radius: 50%;
+            border: 1px solid #000000;
+            padding: .12rem;
+            font-size: 0;
+          }
+          >p{
+            font-size: .26rem;
+            text-align: center;
+            padding: .18rem 0 0 0;
+          }
+          .imageinput{
+            width: .72rem;
+            height: .116rem;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            z-index: 99;
+          }
+        }
+      }
+      .kada-face-dialog{
+        width: 2.79rem;
+        height: 3.9rem;
+        text-align: center;
+        >h3{
+          font-size: .2rem;
+          color: rgb(71,118,231);
+          line-height: .2rem;
+          margin: .36rem 0 .16rem 0;
+        }
+        >p{
+          font-size: .14rem;
+          line-height: .14rem;
+        }
+        >img{
+          width: 1rem;
+          height: 1.47rem;
+          margin: .36rem 0 .4rem 0;
+        }
+        .kada-facedialog-buttom{
+          margin:  0 auto;
+          width: 1.99rem;
+          height: .44rem;
+          border-radius: .22rem;
+          position: relative;
+          background-color: rgb(52,105,255);
+          >p{
+            font-size: .16rem;
+            color: #ffffff;
+            text-align: center;
+            line-height: .44rem;
+          }
+          .imageinput{
+            width: 1.99rem;
+            height: .44rem;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            z-index: 99;
+            .van-uploader__wrapper{
+              width: 1.99rem;
+             height: .44rem;
+             .van-uploader__upload{
+              width: 1.99rem;
+              height: .44rem;
+             }
+            }
+          }
+        }
+      }
+    }
+    // 手机登录
+    .kada-wx-mobile{
+      padding: .64rem .54rem;
+      position: relative;
+      background-color: #ffffff;
+      font-size: 0;
+      width: 100%;
+      .kada-wx-phone{
+        position: absolute;
+        top: .9rem;
+        left: .9rem;
+        width: .34rem;
+        height: .34rem;
+        color: rgb(153,153,153);
+      }
+      .kada-wx-psw{
+        position: absolute;
+        top: 2.24rem;
+        left: .9rem;
+        width: .34rem;
+        height: .34rem;
+        color: rgb(153,153,153);
+      }
+      .kada-wx-psw1{
+        position: absolute;
+        top: 3.6rem;
+        left: .9rem;
+        width: .34rem;
+        height: .34rem;
+        color: rgb(153,153,153);
+      }
+      .kada-wx-psw2{
+        position: absolute;
+        top: 4.96rem;
+        left: .9rem;
+        width: .34rem;
+        height: .34rem;
+        color: rgb(153,153,153);
+      }
+      .kada-wx-psw3{
+        position: absolute;
+        top: .9rem;
+        left: .9rem;
+        width: .34rem;
+        height: .34rem;
+        color: rgb(153,153,153);
+      }
+      .kada-wx-psw4{
+        position: absolute;
+        top: 2.24rem;
+        left: .9rem;
+        width: .34rem;
+        height: .34rem;
+        color: rgb(153,153,153);
+      }
+      .kada-mobile-phoneerrorfirst{
+        width: 6.4rem;
+        height: .88rem;
+        font-size: .32rem;
+        padding: 0 .2rem;
+        // margin: 0 0 .24rem 0;
+        border: 1px solid rgb(240,69,76);
+        border-radius: .44rem;
+        input{
+          border:none;
+          width: 5.4rem;
+          font-size: .32rem;
+          line-height: .84rem;
+          padding: 0 0 0 .8rem;
+          display: inline-block;
+          vertical-align: middle;
+        }
+        .kada-wx-svg{
+          width: .34rem;
+          height: .34rem;
+          color: rgb(153,153,153);
+          display: inline-block;
+          vertical-align: middle;
+        }
+        .kada-wx-svg1{
+          width: .34rem;
+          height: .34rem;
+          color: rgb(153,153,153);
+          display: inline-block;
+          vertical-align: middle;
+          background-color: rgb(153,153,153);
+        }
+      }
+      .kada-mobile-phoneerror{
+        width: 6.4rem;
+        height: .88rem;
+        font-size: .32rem;
+        padding: 0 .2rem;
+        margin: .48rem 0 0 0;
+        border: 1px solid rgb(240,69,76);
+        border-radius: .44rem;
+        input{
+          border:none;
+          width: 5.4rem;
+          font-size: .32rem;
+          line-height: .84rem;
+          padding: 0 0 0 .8rem;
+          display: inline-block;
+          vertical-align: middle;
+        }
+        .kada-wx-svg{
+          width: .34rem;
+          height: .34rem;
+          color: rgb(153,153,153);
+          display: inline-block;
+          vertical-align: middle;
+        }
+        .kada-wx-svg1{
+          width: .34rem;
+          height: .34rem;
+          color: rgb(153,153,153);
+          display: inline-block;
+          vertical-align: middle;
+          background-color: rgb(153,153,153);
+        }
+      }
+      .kada-mobile-phonefirst{
+        // width: 3.2rem;
+        width: 100%;
+        height: .88rem;
+        font-size: .32rem;
+        padding: 0 .2rem;
+        // margin:.24rem 0 0  0;
+        position: relative;
+        border: 1px solid rgb(153,153,153);
+        border-radius: .44rem;
+        input{
+          border:none;
+          // width: 2.7rem;
+          width: 100%;
+          font-size: .32rem;
+          line-height: .84rem;
+          padding: 0 0 0 .8rem;
+          display: inline-block;
+          vertical-align: middle;
+        }
+        .van-field__error-message{
+          position: absolute;
+          bottom: 0;
+          left: .4rem;
+        }
+        .kada-wx-svg{
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: .34rem;
+          height: .34rem;
+          color: rgb(153,153,153);
+          display: inline-block;
+          vertical-align: middle;
+        }
+      }
+      .kada-mobile-phone{
+        // width: 3.2rem;
+        width: 100%;
+        height: .88rem;
+        font-size: .32rem;
+        padding: 0 .2rem;
+        margin:.48rem 0 0  0;
+        font-size: 0;
+        border: 1px solid rgb(153,153,153);
+        border-radius: .44rem;
+        .van-field__error-message{
+          position: absolute;
+          bottom: 0;
+          left: .8rem;
+        }
+        input{
+          border:none;
+          // width: 2.7rem;
+          width: 100%;
+          font-size: .32rem;
+          line-height: .84rem;
+          padding: 0 0 0 .8rem;
+          display: inline-block;
+          vertical-align: middle;
+        }
+        .kada-wx-svg{
+          width: .34rem;
+          height: .34rem;
+          color: rgb(153,153,153);
+          display: inline-block;
+          vertical-align: middle;
+        }
+      }
+      .kada-mobile-psw{
+        width: 6.4rem;
+        height: .88rem;
+        font-size: .32rem;
+        padding: 0 .2rem;
+        margin:.48rem 0 0  0;
+        border: 1px solid rgb(153,153,153);
+        border-radius: .44rem;
+        font-size: 0;
+        .van-field__error-message{
+          position: absolute;
+          bottom: 0;
+          left: .8rem;
+        }
+        input{
+          border:none;
+          width: 5.4rem;
+          font-size: .32rem;
+          line-height: .84rem;
+          padding: 0 0 0 .4rem;
+          display: inline-block;
+          vertical-align: middle;
+        }
+        .kada-wx-svg{
+          width: .34rem;
+          height: .34rem;
+          color: rgb(153,153,153);
+          display: inline-block;
+          vertical-align: middle;
+        }
+      }
+      .kada-mobile-phoneinputfirst{
+        width: 6.4rem;
+        height: .88rem;
+        font-size: .32rem;
+        padding: 0 .2rem;
+        // margin: .24rem 0 0 0;
+        border: 1px solid rgb(52,105,255);
+        border-radius: .44rem;
+      input{
+          border:none;
+          width: 5.4rem;
+          font-size: .32rem;
+          line-height: .84rem;
+          padding: 0 0 0 .8rem;
+          display: inline-block;
+          vertical-align: middle;
+        }
+        .kada-wx-svg{
+          width: .34rem;
+          height: .34rem;
+          color: rgb(153,153,153);
+          display: inline-block;
+          vertical-align: middle;
+        }
+      }
+      .kada-mobile-phoneinput{
+        width: 6.4rem;
+        height: .88rem;
+        font-size: .32rem;
+        padding: 0 .2rem;
+        margin: .48rem 0 0 0;
+        border: 1px solid rgb(52,105,255);
+        border-radius: .44rem;
+        input{
+          border:none;
+          width: 5.4rem;
+          font-size: .32rem;
+          line-height: .84rem;
+          padding: 0 0 0 .8rem;
+          display: inline-block;
+          vertical-align: middle;
+        }
+        .kada-wx-svg{
+          width: .34rem;
+          height: .34rem;
+          color: rgb(153,153,153);
+          display: inline-block;
+          vertical-align: middle;
+        }
+      }
+      .kada-mobile-code1{
+        width: 3.94rem;
+        height: .88rem;
+        font-size: .32rem;
+        padding: 0 .2rem;
+        margin: .48rem 0 0 0;
+        border: 1px solid rgb(153,153,153);
+        border-radius: .44rem;
+        display: inline-block;
+        vertical-align: middle;
+        input{
+          border:none;
+          width: 2.9rem;
+          font-size: .32rem;
+          line-height: .84rem;
+          padding: 0 0 0 .8rem;
+          display: inline-block;
+          vertical-align: middle;
+        }
+        .kada-wx-svg{
+          width: .34rem;
+          height: .34rem;
+          color: rgb(153,153,153);
+          display: inline-block;
+          vertical-align: middle;
+        }
+      }
+      .kada-mobile-code1{
+        width: 3.94rem;
+        height: .88rem;
+        font-size: .32rem;
+        padding: 0 .2rem;
+        margin: .48rem 0 0 0;
+        border: 1px solid rgb(153,153,153);
+        border-radius: .44rem;
+        display: inline-block;
+        vertical-align: middle;
+        input{
+          border:none;
+          width: 2.9rem;
+          font-size: .32rem;
+          line-height: .84rem;
+          padding: 0 0 0 .8rem;
+          display: inline-block;
+          vertical-align: middle;
+        }
+        .kada-wx-svg{
+          width: .34rem;
+          height: .34rem;
+          color: rgb(153,153,153);
+          display: inline-block;
+          vertical-align: middle;
+        }
+      }
+      .kada-mobile-codeinput1{
+        width: 3.94rem;
+        height: .88rem;
+        font-size: .32rem;
+        padding: 0 .2rem;
+        margin: .48rem 0 0 0;
+        border: 1px solid rgb(52,105,255);
+        border-radius: .44rem;
+        display: inline-block;
+        vertical-align: middle;
+        input{
+          border:none;
+          width: 2.9rem;
+          font-size: .32rem;
+          line-height: .84rem;
+          padding: 0 0 0 .8rem;
+          display: inline-block;
+          vertical-align: middle;
+        }
+        .kada-wx-svg{
+          width: .34rem;
+          height: .34rem;
+          color: rgb(153,153,153);
+          display: inline-block;
+          vertical-align: middle;
+        }
+      }
+      .kada-mobile-codeerror1{
+        width: 3.94rem;
+        height: .88rem;
+        font-size: .32rem;
+        padding: 0 .2rem;
+        margin: .48rem 0 0 0;
+        border: 1px solid rgb(240,69,76);
+        border-radius: .44rem;
+        display: inline-block;
+        vertical-align: middle;
+        input{
+          border:none;
+          width: 2.9rem;
+          font-size: .32rem;
+          line-height: .84rem;
+          padding: 0 0 0 .8rem;
+          display: inline-block;
+          vertical-align: middle;
+        }
+        .kada-wx-svg{
+          width: .34rem;
+          height: .34rem;
+          color: rgb(153,153,153);
+          display: inline-block;
+          vertical-align: middle;
+        }
+      }
+      .kada-mobile-codebuttom{
+        margin:  .48rem auto;
+        width: 2.16rem;
+        // height: .88em;
+        margin: .48rem 0 0 .2rem;
+        border-radius: .44rem;
+        display: inline-block;
+        vertical-align: middle;
+        background-color: $theme;
+        >p{
+          font-size: .32rem;
+          color: #ffffff;
+          text-align: center;
+          line-height: .88rem;
+        }
+      }
+      .kada-mobile-codeimg{
+        margin:  .48rem 0 .2rem;
+        // width: 1rem;
+        width: 55.85%;
+        height: .88rem;
+        border-radius: .44rem;
+        display: inline-block;
+        vertical-align: middle;
+        >p{
+          font-size: .28rem;
+          text-align: center;
+          line-height: .88rem;
+          display: inline-block;
+          vertical-align: middle;
+        }
+        >img{
+          width: 1.64rem;
+          height: .88rem;
+          display: inline-block;
+          vertical-align: middle;
+        }
+      }
+      .kada-mobile-code{
+        // width: 1.3rem;
+        width: 40.5%;
+        height: .88rem;
+        font-size: .32rem;
+        padding: 0 .4rem;
+        margin:.48rem 0 0  .1rem;
+        border: 1px solid rgb(153,153,153);
+        border-radius: .44rem;
+        display: inline-block;
+        vertical-align: middle;
+        .van-field__error-message{
+          position: absolute;
+          bottom: 0;
+          left: .2rem;
+        }
+        input{
+          border:none;
+          // width: .9rem;
+          width: 100%;
+          font-size: .32rem;
+          line-height: .84rem;
+          padding: 0 0 0 .2rem;
+          display: inline-block;
+          vertical-align: middle;
+        }
+        .kada-wx-svg{
+          width: .34rem;
+          height: .34rem;
+          color: rgb(153,153,153);
+          display: inline-block;
+          vertical-align: middle;
+        }
+      }
+      .kada-mobile-codeinput{
+        width: 2.6rem;
+        height: .88rem;
+        font-size: .32rem;
+        padding: 0 .4rem;
+        margin:.48rem 0 0  .1rem;
+        border: 1px solid $theme;
+        border-radius: .44rem;
+        display: inline-block;
+        vertical-align: middle;
+        .van-field__error-message{
+          position: absolute;
+          bottom: 0;
+          left: .2rem;
+        }
+        input{
+          border:none;
+          width: .18rem;
+          font-size: .32rem;
+          line-height: .84rem;
+          padding: 0 0 0 .2rem;
+          display: inline-block;
+          vertical-align: middle;
+        }
+      }
+      .kada-mobile-codeerror{
+        width: 12.6rem;
+        height: .88rem;
+        font-size: .32rem;
+        padding: 0 .4rem;
+        margin:.48rem 0 0  .1rem;
+        border: 1px solid rgb(240,69,76);
+        border-radius: .44rem;
+        display: inline-block;
+        vertical-align: middle;
+        .van-field__error-message{
+          position: absolute;
+          bottom: 0;
+          left: .2rem;
+        }
+        input{
+          border:none;
+          width: .18rem;
+          font-size: .32rem;
+          line-height: .84rem;
+          padding: 0 0 0 .2rem;
+          display: inline-block;
+          vertical-align: middle;
+        }
+      }
+      .kada-mobile-codewait{
+        margin:  .48rem auto;
+        width: 2.16rem;
+        height: .88rem;
+        margin: .48rem 0 0 .2rem;
+        border-radius: .44rem;
+        display: inline-block;
+        vertical-align: middle;
+        background-color: #cccccc;
+        >p{
+          font-size: .32rem;
+          color: #ffffff;
+          text-align: center;
+          line-height: .88rem;
+        }
+      }
+      .kada-mobile-tips{
+        margin: .52rem auto 0;
+        >p{
+          text-align: center;
+          font-size: .28rem;
+          color: rgb(240,69,76);
+        }
+      }
+      .kada-login-in{
+        margin:  .48rem auto;
+        // width: 3.2rem;
+        width: 100%;
+        height: .88rem;
+        border-radius: .44rem;
+        background-color: $theme;
+        >p{
+          font-size: .32rem;
+          color: #ffffff;
+          text-align: center;
+          line-height: .88rem;
+        }
+      }
+      .kada-login-forgotpsw{
+        width: 2rem;
+        margin: .4rem auto;
+        >p{
+          font-size: .28rem;
+          color: #cccccc;
+          text-align: center;
+        }
+      }
+      .kada-mobile-dialog{
+        border-radius: .08rem;
+        width: 5.58rem;
+        height: 4.44rem;
+        position: relative;
+        padding: .48rem .248rem .64rem;
+        >h3{
+          font-size: .36rem;
+        }
+        >p{
+          font-size: .30rem;
+          padding: .56rem 0 .2rem;
+          line-height: .48rem;
+        }
+        .kada-dialog-buttom{
+          margin:  .48rem auto;
+          width: 4.3rem;
+          height: .84rem;
+          border-radius: .44rem;
+          background-color: rgb(52,105,255);
+          >p{
+            font-size: .32rem;
+            color: #ffffff;
+            text-align: center;
+            line-height: .84rem;
+          }
+        }
+        .kada-face-buttom{
+          margin:  .48rem .08rem;
+          width: 4.3rem;
+          height: .84rem;
+          border-radius: .44rem;
+          p{
+            font-size: .32rem;
+            color: #ffffff;
+            text-align: center;
+            line-height: .84rem;
+          }
+        }
+        .kada-wx-svg{
+          position: absolute;
+          top: .32rem;
+          right: .32rem;
+          width: .24rem;
+          height: .24rem;
+        }
+      }
+      .User-service-agreement{
+        margin: .4rem auto 0;
+        text-align: center;
+        >span{
+          font-size: .28rem;
+          color: #999999;
+          display: inline-block;
+          vertical-align: middle;
+        }
+        >P{
+          font-size: .28rem;
+          color: $theme;
+          display: inline-block;
+          vertical-align: middle;
+        }
+      }
+    }
+    .kada-user-agreement{
+      padding: .48rem .4rem;
+      overflow: auto;
+      background-color: #ffffff;
+      .title{
+        font-size: .36rem;
+        font-weight: 600;
+        text-align: center;
+        color: #000000;
+        padding-bottom: .4rem;
+      }
+      .title1{
+        font-size: .32rem;
+        font-weight: 600;
+        color: #000000;
+      }
+      >p{
+        font-size: .3rem;
+        line-height: .52rem;
+        font-weight: 600;
+        color: #666666;
+        padding-bottom: .2rem;
+      }
+    }
+  }

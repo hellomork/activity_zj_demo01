@@ -1,0 +1,168 @@
+@import "./variables.scss";
+@mixin inline-block-middle {
+  display: inline-block;
+  vertical-align: middle;
+}
+@mixin inline-block-top {
+  display: inline-block;
+  vertical-align: top;
+}
+@mixin middle-table-cell {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+@mixin top-table-cell {
+  display: table-cell;
+  vertical-align: top;
+}
+
+@mixin basic-subtext {
+  font-size: 14px;
+  color: $subTextColor;
+  text-align: center;
+}
+
+@mixin relative {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+@mixin paragraph {
+  font-size: 16px;
+  color: $textColor;
+}
+
+@mixin subParagraph {
+  font-size: 14px;
+  color: $subTextColor;
+}
+
+@mixin text-ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+  text-align: left;
+}
+@mixin button {
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+@mixin button-disabled{
+  @include button;
+  cursor: default;
+  color: #999999;
+}
+@mixin button-hover {
+  color: #fff;
+  background-color: $theme;
+}
+@mixin xcenter {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+@mixin ycenter {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+@mixin center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+@mixin btn {
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  color: #fff;
+  background-color: $theme;
+  &:hover{
+    // color: $theme;
+    // background-color: #fff;
+  }
+}
+@mixin btn-1-r {
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-color: #fff;
+  color: #fff;
+  background: $theme;
+  // background-image: url(../assets/img/b1_sel.png);
+  // &:hover{
+  //   color: $theme;
+  //   background-image: url(../assets/img/b1_nor.png);
+  // }
+}
+@mixin btn-disabled-2 {
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-color: $theme;
+  color: #fff;
+  // background-image: url(../assets/img/b2_nor.png);
+  opacity: .5;
+}
+@mixin btn-disabled-3 {
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-color: $theme;
+  color: #fff;
+  // background-image: url(../assets/img/b3_nor.png);
+  opacity: .5;
+}
+@mixin btn-2-r {
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  color: $theme;
+  background-color: #fff;
+  // background-image: url(../assets/img/b2_sel.png);
+  // &:hover{
+  //   color: $theme;
+  //   background-image: url(../assets/img/b2_nor.png);
+  // }
+}
+
+@mixin btn-5-r {
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-color: $theme;
+  color: #fff;
+}
+@mixin btn-disabled-4 {
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  color: #fff;
+  background-color: $theme;
+  opacity: .5;
+}
+@mixin btn-disabled-5 {
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-color: #fff;
+  color: $theme;
+  opacity: .5;
+}
+@mixin inline-m {
+  display: inline-block;
+  vertical-align: middle;
+}
+@mixin cutWords {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+@mixin cutWords2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+@mixin cell-m {
+  display: table-cell;
+  vertical-align: middle;
+}

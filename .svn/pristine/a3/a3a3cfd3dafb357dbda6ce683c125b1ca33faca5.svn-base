@@ -1,0 +1,296 @@
+@import "./variables.scss";
+@import "./mixin.scss";
+@import "./wxindex.scss";
+@import "./pcindex.scss";
+@import './login.scss';
+
+* {
+  word-wrap: break-word;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-size: initial;
+  line-height: 1;
+}
+
+.clearfix {
+  zoom: 1;
+}
+
+body {
+  background-color: #EEEEEE;
+  margin: 0;
+}
+.clearfix:after {
+  content: " ";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.upload-image{
+  .el-dialog{
+    width: 600px;
+    height: 600px;
+    .bg{
+      background-size: contain;
+    }
+  }
+}
+.login {
+  .el-dialog {
+    width: 400px;
+    padding: 30px 60px;
+    .el-dialog__header {
+      padding: 0 0 30px 0;
+    }
+    .el-dialog__body {
+      padding: 0;
+      .el-form--label-top {
+        .el-button {
+          width: 100%;
+          span {
+            font-size: 18px;
+          }
+        }
+        .code {
+          &.rcode {
+            .el-input {
+              width: 180px;
+            }
+            .code-img {
+              .el-button {
+                padding: 12px 0;
+                span {
+                  font-size: 14px;
+                }
+              }
+            }
+          }
+          .el-input {
+            width: 100px;
+          }
+        }
+        .el-form-item__label {
+          line-height: 1;
+          padding-bottom: 6px;
+        }
+      }
+    }
+  }
+}
+
+.login {
+  .forget{
+    display: table;
+    width: 100%;
+    p{
+    display: table-cell;
+    vertical-align: middle;
+      color: #000000;
+      &:last-child{
+        text-align: right;
+      }
+      span{
+        cursor: pointer;
+        color: $theme;
+      }
+    }
+  }
+  .code {
+    display: inline-block;
+    vertical-align: middle;
+    .code-img {
+      display: inline-block;
+      vertical-align: middle;
+      padding-left: 14px;
+      width: 96px;
+      cursor: pointer;
+      img {
+        width: 82px;
+        height: 34px;
+      }
+      span {
+        font-size: 12px;
+        color: #333333;
+      }
+    }
+  }
+  .btn{
+    margin-top: 8px;
+    margin-bottom: 15px;
+  }
+}
+
+.kada-dialog-wrap.login {
+  .kada-dialog {
+    width: 400px;
+    padding: 43px 60px 32px;
+    h3 {
+      padding: 0;
+    }
+  }
+}
+.login {
+  .forget{
+    display: table;
+    width: 100%;
+    p{
+  display: table-cell;
+  vertical-align: middle;
+      color: #000000;
+      cursor: pointer;
+      &:last-child{
+        text-align: right;
+      }
+      span{
+        cursor: pointer;
+        color: $theme;
+      }
+    }
+  }
+  .code {
+    display: inline-block;
+    vertical-align: middle;
+    .code-img {
+      display: inline-block;
+      vertical-align: middle;
+      padding-left: 14px;
+      cursor: pointer;
+      img {
+        width: 82px;
+        height: 34px;
+      }
+      span {
+        font-size: 12px;
+        color: #333333;
+      }
+    }
+  }
+  .btn{
+    margin-top: 8px;
+    margin-bottom: 15px;
+  }
+  .third-login{
+    p{
+      font-size: 14px;
+      line-height: 31.4px;
+      color: #000000;
+      position: relative;
+      text-align: center;
+      margin: 20px 0 15px;
+      &:before,
+      &:after{
+        content: "";
+        width: 24px;
+        height: 1px;
+        background-color: $theme;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      &:before{
+        left: 60px;
+      }
+      &:after{
+        right: 60px;
+      }
+    }
+    .login-bar{
+      text-align: center;
+      a{
+        display: inline-block;
+        width: 44px;
+        height: 44px;
+        border: solid 1px #e5e5e5;
+        border-radius: 50%;
+        padding: 8px;
+        margin-right: 32px;
+        &:last-child{
+          margin: 0;
+        }
+      }
+      .wechat{
+        color: #1da636;
+      }
+      .qq{
+        color: #1aa5fc;
+      }
+      .sina{
+        color: #cf2b27;
+      }
+    }
+  }
+}
+
+.login {
+  .forget{
+    display: table;
+    width: 100%;
+    p{
+  display: table-cell;
+  vertical-align: middle;
+      color: #000000;
+      &:last-child{
+        text-align: right;
+      }
+      span{
+        cursor: pointer;
+        color: $theme;
+      }
+    }
+  }
+  .code {
+    display: inline-block;
+    vertical-align: middle;
+    .code-img {
+      display: inline-block;
+      vertical-align: middle;
+      padding-left: 14px;
+      width: 96px;
+      cursor: pointer;
+      img {
+        width: 82px;
+        height: 34px;
+      }
+      span {
+        font-size: 12px;
+        color: #333333;
+      }
+    }
+  }
+  .btn{
+    margin-top: 8px;
+    margin-bottom: 15px;
+  }
+}
+
+// admin样式
+
+// list
+.main {
+  margin: 0px 40px;
+  .top-chooce {
+    width: 100%;
+    margin: 40px 0px;
+    .choose-bar {
+      ul {
+        float: left;
+        list-style: none;
+        li {
+          float: left;
+          padding-right: 8px;
+          padding-top: 12px;
+          .el-select{
+            width: 150px;
+          }
+        }
+      }
+      .action-bar {
+        float: right;
+        padding-top: 12px;
+      }
+    }
+  }
+}

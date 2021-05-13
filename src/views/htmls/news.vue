@@ -1,0 +1,228 @@
+<template>
+  <div class="whole">
+    <div class="kada_pc_picshow" v-if="!isMobile">
+      <div class="bg_header"></div>
+      <div class="pic_bg">
+        <div class="act-container clearfix">
+          <div class="kada_title_zj">
+            <img src="@/assets/img/pc/img_title2.png" alt="" />
+          </div>
+          <div class="boder">
+            <div class="picshow1">
+              <ul class="clearfix">
+                <li
+                  v-for="(one, index) in Data.news"
+                  :key="index"
+                  @click="toPath(one.ocUri)"
+                >
+                  <h3>
+                    {{ one.ocName }}
+                  </h3>
+                  <div class="des">
+                    <span>发布人：{{ one.company }}</span
+                    ><span>发布时间：{{ one.ocTime }}</span>
+                  </div>
+                </li>
+              </ul>
+              <!-- <div class="kada_more">查看更多</div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <navBar :url="url"></navBar>
+    </div>
+    <div class="kada_wx_picshow" v-if="isMobile">
+      <!-- <div class="headerbg"></div> -->
+      <div class="kada_list">
+        <div class="pic_cont">
+          <img src="@/assets/imgwx/new/img_title2.png" alt="" />
+        </div>
+        <div class="boder">
+          <div class="n_boder">
+            <!-- <div class="title_top1">
+              活动快讯
+            </div> -->
+            <div
+              class="news_list"
+              v-for="(news, index) in Data.news"
+              :key="index"
+              @click="toPath(news.ocUri)"
+            >
+              <h3>{{ news.ocName }}</h3>
+              <span>发布时间：{{ news.ocTime }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 分享 返回顶部 -->
+      <!-- 悬浮按钮 -->
+      <div class="top-share">
+        <div class="listleft" @click="shareAlert()">
+          <img src="@/assets/imgwx/wx_share.png" alt />
+        </div>
+        <div class="listtwo" @click="toTo()">
+          <img src="@/assets/imgwx/backtop.png" alt />
+          <!-- <span>返回<br>顶部</span> -->
+        </div>
+      </div>
+      <!--微信分享指示-->
+      <div
+        class="hom-sharewraper"
+        id="hom-sharewraper"
+        style="display: none"
+        @click="closedAlert()"
+      >
+        <img src="@/assets/imgwx/share-alert.png" />
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+import QRCode from 'qrcodejs2'
+import Data from '@/data/staticData'
+import { mapGetters } from 'vuex'
+import navBar from './components/navigatonBar'
+import wxService from '@/api/wxService'
+var imgURrl = require('@/assets/imgwx/shareicon.png')
+export default {
+  computed: {
+    ...mapGetters(['isMobile', 'userInfo']),
+  },
+  components: {
+    navBar,
+  },
+  data() {
+    return {
+      Data: {
+        news: [],
+      },
+      qrcodeFlag: false,
+      url: window.location.href,
+    }
+  },
+  methods: {
+    back() {
+      this.$router.push({ path: '/' })
+    },
+    goUp() {
+      let top = document.documentElement.scrollTop || document.body.scrollTop
+      // 实现滚动效果
+      const timeTop = setInterval(() => {
+        document.body.scrollTop = document.documentElement.scrollTop = top -= 50
+        if (top <= 0) {
+          clearInterval(timeTop)
+        }
+      }, 10)
+    },
+    toPath(path) {
+      window.open(path)
+    },
+    toTo() {
+      window.scrollTo(0, 0)
+    },
+    showQrcode() {
+      var url = this.url
+      this.$refs.qrcode.innerHTML = ''
+      this.qrcodeFlag = true
+      this.creatQrcode(url)
+      console.log(url)
+    },
+    hideQrcode() {
+      this.qrcodeFlag = false
+      this.$refs.qrcode.innerHTML = ''
+    },
+    creatQrcode(text) {
+      this.qrcode = new QRCode('qrcode', {
+        width: 90,
+        height: 90,
+        text: text, // 二维码地址
+        colorDark: '#000',
+        colorLight: '#fff',
+      })
+    },
+    shareAlert() {
+      document.getElementById('hom-sharewraper').style.display = 'block'
+    },
+    closedAlert() {
+      document.getElementById('hom-sharewraper').style.display = 'none'
+    },
+  },
+  mounted() {
+    this.Data = Data
+    if (this.isMobile) {
+      var shareConfig = {}
+      shareConfig.currentTitle = '“群星璀璨共谱时代华章”浙江省红色主题雕塑大展'
+      shareConfig.share_url = window.location.href
+      shareConfig.currentCover = window.location.origin + '/21dxdz/' + imgURrl
+      shareConfig.currentDetail = '11月21日，与您相约'
+      // console.log('分享参数：', shareConfig)
+      wxService.setWXConfig(shareConfig)
+    }
+  },
+}
+</script>
+<style lang="scss" scoped>
+.top-share {
+  position: fixed;
+  right: 0;
+  top: 7.6rem;
+  z-index: 99;
+  /* z-index: 999;s */
+  .listleft {
+    width: 1.2rem;
+    height: 1.2rem;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .listtwo {
+    margin-top: 0.5rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+.hom-sharewraper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 100;
+  padding-top: 0.6rem;
+  padding-left: 2.3rem;
+}
+.hom-sharewraper img {
+  display: block;
+  width: 4.77rem;
+  height: 3.68rem;
+}
+.code1 {
+  position: relative;
+  .code {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: -110px;
+    top: -10px;
+    padding: 5px;
+    background-color: #ffffff;
+    .qrcode {
+      width: 70px;
+      height: 70px;
+      position: relative;
+      // top: -7px;
+      // right: 10px;
+    }
+  }
+}
+// .kada_title10{
+//   background: url(../../);
+// }
+</style>
+

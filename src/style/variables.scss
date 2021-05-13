@@ -1,0 +1,103 @@
+// /*
+//  * @Author: Jordan 
+//  * @Date: 2019-07-24 17:34:29 
+//  * @Last Modified by: mikey.zhaopeng
+//  * @Last Modified time: 2021-04-07 09:56:29
+//  */
+// // 主题颜色
+// // $theme:#DE3519;
+// $theme:#FBEEEB;
+// $themeBg:#FDE8DE;
+// // 字体颜色
+// $textColor: #333333;
+// $subTextColor: #999999;
+// // hover&&选中状态颜色
+// $activeColor:#FDE8DE;
+// // the :export directive is the magic sauce for webpack
+// // https://www.bluematador.com/blog/how-to-share-variables-between-js-and-sass
+// // 导出js可调用的变量   
+// // 举例： 
+// /* import variables from '@/styles/variables.scss' 
+// computed: {
+//     variables() {
+//       return variables
+//     }
+//   }, */
+// // 可以直接在页面上调用
+// :export {
+//   theme: $theme;
+//   themeBg:$themeBg;
+//   textColor: $textColor;
+//   subTextColor:$subTextColor;
+//   activeColor:$activeColor;
+// }
+/*
+ * @Author: Jordan 
+ * @Date: 2019-07-24 17:34:29 
+ * @Last Modified by: Jordan
+ * @Last Modified time: 2020-12-02 16:09:24
+ */
+// 主题颜色
+// $theme:#AA481F;
+$theme:#AA481F;
+$themeBg:#AA481F;
+// 字体颜色
+$textColor: #333333;
+$subTextColor: #999999;
+// hover&&选中状态颜色
+$activeColor:#AA481F;
+// the :export directive is the magic sauce for webpack
+// https://www.bluematador.com/blog/how-to-share-variables-between-js-and-sass
+// 导出js可调用的变量   
+// 举例： 
+/* import variables from '@/styles/variables.scss' 
+computed: {
+    variables() {
+      return variables
+    }
+  }, */
+/***************************大型赛事用到的颜色****************************/
+// 背景色
+$backColour: var(--backColour, #FFF7F5); 
+// 导航栏字体颜色
+$barFontColour: var(--barFontColour, #ffffff); 
+// 导航栏选中颜色
+$barHoverColour: var(--barHoverColour, #DB1919);
+// 导航栏背景色 - 主题色
+$barBackColour: var(--barBackColour, #F64347);
+// 按钮字体颜色
+$buttonFontColour: var(--buttonFontColour, #358292); 
+// 按钮选中字体颜色
+$buttonSelectFontColour: var(--buttonSelectFontColour, #ffffff); 
+// 按钮选中背景色
+$buttonSelectBackColour: var(--buttonSelectBackColour, #358292);
+// 内容区背景色
+$subBackColour: var(--subBackColour, #ffffff); 
+// 主内容字体颜色
+$subFontColour: var(--subFontColour, #333333); 
+// 主内容字体透明度
+$subFontOpacity: var(--subFontOpacity, 0.9); 
+// 子内容字体颜色
+$subChildFontColour: var(--subChildFontColour, #999999); 
+// 子内容字体透明度
+$subChildFontOpacity: var(--subChildFontOpacity, 0.8); 
+/***************************大型赛事用到的颜色****************************/
+// 可以直接在页面上调用
+:export {
+  theme: $theme;
+  themeBg:$themeBg;
+  textColor: $textColor;
+  subTextColor:$subTextColor;
+  activeColor:$activeColor;
+  backColour:$backColour;
+  barFontColour:$barFontColour;
+  barHoverColour:$barHoverColour;
+  buttonFontColour:$buttonFontColour;
+  buttonSelectFontColour:$buttonSelectFontColour;
+  buttonSelectBackColour:$buttonSelectBackColour;
+  subBackColour:$subBackColour;
+  subFontColour:$subFontColour;
+  subFontOpacity:$subFontOpacity;
+  subChildFontColour:$subChildFontColour;
+  subChildFontOpacity:$subChildFontOpacity;
+}
