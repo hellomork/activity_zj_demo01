@@ -124,9 +124,9 @@ export default {
     getUrl() {
       if (window.location.pathname === '/21dxdz/21dxdz') {
         this.routerFlag = 1
-      } else if(window.location.pathname.indexOf('picshow_detail') >0||window.location.pathname.indexOf('character_detail') >0){
+      } else if (window.location.pathname.indexOf('picshow_detail') > 0 || window.location.pathname.indexOf('character_detail') > 0) {
         this.routerFlag = 3
-      }else{
+      } else {
         this.routerFlag = 2
       }
     }

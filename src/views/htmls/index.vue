@@ -338,7 +338,9 @@
             </div>
             <div class="lunbo">
               <swiper :options="lunboSwiper" ref="lunboSwiper">
-                <swiper-slide class="lunslide" v-for="(item, index) in implement"
+                <swiper-slide
+class="lunslide"
+v-for="(item, index) in implement"
                   :key="index"
                   @click="toOpenImplement(item)">
                   <img :src="item.picture" alt="" />
@@ -378,7 +380,8 @@
               </div>
               <div class="articl1e" v-if="numChange==1">
                 <ul>
-                  <li v-for="(item, index) in Data.news"
+                  <li
+v-for="(item, index) in Data.news"
                       v-show="index < 5"
                       :key="index"
                       @click="toDetail(item, 1)">
@@ -389,7 +392,8 @@
               </div>
                <div class="articl1e" v-if="numChange==2">
                 <ul>
-                  <li v-for="(item, index) in Data.report"
+                  <li
+v-for="(item, index) in Data.report"
                       v-show="index < 5"
                       :key="index"
                       @click="toDetail(item, 2)">
@@ -416,7 +420,8 @@
             </div>
             <div class="bord">
               <ul>
-                <li  v-for="(x, index) in pickList"
+                <li
+v-for="(x, index) in pickList"
                 :key="index"
                 @click="toDetail(x, 3)">
                   <div class="cover">
@@ -462,7 +467,8 @@
             </div>
             <div class="bord">
               <ul>
-                <li  v-for="(x, index) in Data.theme"
+                <li
+v-for="(x, index) in Data.theme"
                   v-show="index < 5"
                   :key="index"
                   @click="toDetail(x, 5)">
@@ -532,23 +538,23 @@ import { mapGetters } from 'vuex'
 import wxService from '@/api/wxService'
 var imgURrl = require('@/assets/imgwx/shareicon.png')
 export default {
-  name:'index',
+  name: 'Index',
   computed: {
-    ...mapGetters(['isMobile', 'userInfo']),
+    ...mapGetters(['isMobile', 'userInfo'])
     // swiper(
 
     // )
   },
   components: {
-    navBar,
+    navBar
   },
   data() {
     return {
       implement: [
         {
           video: '',
-          picture: '',
-        },
+          picture: ''
+        }
       ], // 开幕活动
       show: false,
       wxIphoneHeight: 600,
@@ -570,7 +576,7 @@ export default {
         report: [],
         picList: [],
         sidelightsList: [],
-        characterFive: {},
+        characterFive: {}
       },
       mapLen: 0,
       tabflag: 0,
@@ -587,7 +593,7 @@ export default {
         threshold: 10, // 如果触摸距离小于该值滑块不会被拖动
         followFinger: false,
         // ~~~~~解决 手机上横向滑动的时候出现卡顿的bug end~~~~~~~~
-        onSlideChangeStart: function (swiper) {
+        onSlideChangeStart: function(swiper) {
           // alert(swiper.activeIndex)
           if (swiper.activeIndex === 0) {
             // console.log(this.$refs.top_cont)
@@ -595,7 +601,7 @@ export default {
           } else {
             document.getElementById('top_cont').style.display = 'block'
           }
-        },
+        }
       },
       lunboSwiper: {
         effect: 'coverflow',
@@ -609,14 +615,14 @@ export default {
           stretch: 0,
           depth: 100,
           modifier: 5,
-          slideShadows: true,
+          slideShadows: true
         },
         pagination: '.swiper-pagination',
-        paginationType: 'fraction',
+        paginationType: 'fraction'
       },
       url: window.location.href,
       numChange: 1,
-      navNum: 1,
+      navNum: 1
     }
   },
 
@@ -628,15 +634,15 @@ export default {
         this.$router.push({
           name: 'picshow_detail',
           params: {
-            ocCode: x.ocCode,
-          },
+            ocCode: x.ocCode
+          }
         })
-      }else if (num == 4) {
+      } else if (num == 4) {
         this.$router.push({
           name: 'character_detail',
           params: {
-            ocCode: x.name,
-          },
+            ocCode: x.name
+          }
         })
       }
     },
@@ -669,7 +675,7 @@ export default {
     changeChick(num) {
       this.numChange = num
     },
-    handleAnimation: function (anim) {
+    handleAnimation: function(anim) {
       this.anim = anim
       console.log(anim) // 这里可以看到 lottie 对象的全部属性
     },
@@ -679,7 +685,7 @@ export default {
     toVideoAuto() {
       document.addEventListener(
         'WeixinJSBridgeReady',
-        function () {
+        function() {
           document.getElementById('video').play()
         },
         false
@@ -715,7 +721,7 @@ export default {
         height: 90,
         text: text, // 二维码地址
         colorDark: '#000',
-        colorLight: '#fff',
+        colorLight: '#fff'
       })
     },
     shareAlert() {
@@ -735,20 +741,22 @@ export default {
       params.status = 1
       params.operateCode = 'c0612dbe-b2ec-11eb-8ecb-b8599f37e6f0'
       // params.searchSort = this.searchSort
-     if(this.isMobile){
+      if (this.isMobile) {
         params.pageSize = 4
-     }else{
+      } else {
         params.pageSize = 10
-     }
+      }
       params.ocName = this.ocName
       this.$apis.getList(params).then((res) => {
         _this.pickList = res.data.data.list
         console.log(_this.pickList)
       })
-    },
+    }
+  },
+  created() {
+    this.wxIphoneHeight = window.screen.availHeight
   },
   mounted() {
-    this.wxIphoneHeight = window.screen.availHeight
     this.Data = Data
     // console.log('zhangsan',this.Data.character['张三'].brief)
     // console.log(Object.getOwnPropertyNames(this.Data.character).length);
@@ -767,7 +775,7 @@ export default {
       // console.log('分享参数：', shareConfig)
       wxService.setWXConfig(shareConfig)
     }
-  },
+  }
 }
 </script>
 <style lang="scss" scoped>
