@@ -52,6 +52,30 @@ export default new Router({
         pageTitle: '快讯'
       }
     },
+    {
+      path: '/report',
+      name: 'report',
+      component: () => import('@/views/htmls/report'),
+      meta: {
+        pageTitle: '成果报道'
+      }
+    },
+    {
+      path: '/character',
+      name: 'character',
+      component: () => import('@/views/htmls/character'),
+      meta: {
+        pageTitle: '雕塑研讨会'
+      }
+    },
+    {
+      path: '/theme',
+      name: 'theme',
+      component: () => import('@/views/htmls/theme'),
+      meta: {
+        pageTitle: '主题展'
+      }
+    },
 
     /** ********************登录**************************** */
     {

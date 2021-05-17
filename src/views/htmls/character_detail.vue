@@ -61,6 +61,7 @@
        <navBar :url="url"></navBar>
     </div>
     <div class="wx_character_detail" v-if="isMobile">
+        <shareBack></shareBack>
       <div class="top clearfix">
         <div class="cover">
           <img :src="characterDetail.cover" alt="" />
@@ -108,14 +109,16 @@
 <script>
 import { mapGetters } from 'vuex'
 import Data from '@/data/staticData'
+import shareBack from './components/shareAndback'
 import navBar from './components/navigatonBar'
 import QRCode from 'qrcodejs2'
 export default {
   computed: {
-    ...mapGetters(['isMobile', 'userInfo']),
+    ...mapGetters(['isMobile', 'userInfo'])
   },
-   components: {
+  components: {
     navBar,
+    shareBack
   },
   data() {
     return {
@@ -127,8 +130,8 @@ export default {
       characterContentList: [],
       presonList: [],
       Data: {
-        character: {},
-      },
+        character: {}
+      }
     }
   },
   methods: {
@@ -136,8 +139,8 @@ export default {
       this.$router.push({
         name: 'picshow_detail',
         params: {
-          ocCode: x.ocCode,
-        },
+          ocCode: x.ocCode
+        }
       })
     },
     creatQrcode(text) {
@@ -146,7 +149,7 @@ export default {
         height: 90,
         text: text, // 二维码地址
         colorDark: '#000',
-        colorLight: '#fff',
+        colorLight: '#fff'
       })
     },
     showQrcode() {
@@ -170,7 +173,7 @@ export default {
         _this.presonList = res.data.data.list
         console.log(_this.presonList)
       })
-    },
+    }
   },
   mounted() {
     this.Data = Data
@@ -178,7 +181,7 @@ export default {
     this.characterDetail = this.Data.character[this.ocCode]
     this.characterBriefList = this.characterDetail.brief.split('@kada')
     this.characterContentList = this.characterDetail.content.split('@kada')
-  },
+  }
 }
 </script>
 <style lang="scss" scoped>
@@ -267,7 +270,7 @@ export default {
         li{
           width: 48%;
           margin-bottom: 0.2rem;
-        
+
           .cover{
             width: 100%;
             height: 2.12rem;

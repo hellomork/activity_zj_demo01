@@ -12,22 +12,22 @@
             <div class="search_sort clearfix">
               <div class="l">
                 <ul class="clearfix">
-                  <li>排序：</li>
+                  <li>类别：</li>
                   <li
-                    :class="{ active: searchSort == 3 }"
-                    @click="changeSearchSort(3)"
+                    :class="{ active: teamCode == null }"
+                    @click="changeSearchSort(null)"
                   >
                     全部
                   </li>
                   <li
-                    :class="{ active: searchSort == 0 }"
-                    @click="changeSearchSort(0)"
+                    :class="{ active: teamCode == '红色经典' }"
+                    @click="changeSearchSort('红色经典')"
                   >
                     红色经典
                   </li>
                    <li
-                    :class="{ active: searchSort == 2 }"
-                    @click="changeSearchSort(2)"
+                    :class="{ active: teamCode == '青年作品' }"
+                    @click="changeSearchSort('青年作品')"
                   >
                     青年作品
                   </li>
@@ -78,7 +78,7 @@
       <!-- <div class="headerbg"></div> -->
       <div class="kada_list">
         <div class="pic_cont">
-          <img src="@/assets/imgwx/new/img_title2.png" alt="" />
+          <img src="@/assets/imgwx/new/img_title3.png" alt="" />
         </div>
          <!--线上宣讲  -->
         <div class="bor">
@@ -94,18 +94,24 @@
         </div>
              <div class="sort clearfix" style="margin-top: 0.2rem">
                 <ul class="clearfix">
-                  <li>排序：</li>
-                     <li
-                    :class="{ active: searchSort == 3 }"
-                    @click="changeSearchSort(3)"
+                  <li>类别：</li>
+                    <li
+                    :class="{ active: teamCode == null }"
+                    @click="changeSearchSort(null)"
                   >
-                    热度
+                    全部
                   </li>
                   <li
-                    :class="{ active: searchSort == 0 }"
-                    @click="changeSearchSort(0)"
+                    :class="{ active: teamCode == '红色经典' }"
+                    @click="changeSearchSort('红色经典')"
                   >
-                    编号
+                    红色经典
+                  </li>
+                   <li
+                    :class="{ active: teamCode == '青年作品' }"
+                    @click="changeSearchSort('青年作品')"
+                  >
+                    青年作品
                   </li>
 
                 </ul>
@@ -114,7 +120,7 @@
                 v-model="loading"
                 :finished="finished"
                 finished-text="没有更多了"
-                @load="searchwx()"
+                @load="getPictureList()"
               >
               <ul class="clearfix listt">
                 <li
@@ -131,35 +137,23 @@
                   <div class="tit">
                     <h3>{{ one.ocName | substr(8) }}</h3>
                     <p>
-                      宣讲员：{{ one.ocComposingWords | substr(6) }}
+                      专家：{{ one.ocWrite | substr(6) }}
                     </p>
-                    <span>{{one.ocVote}}</span>
-                    <div class="status" v-if="one.opStatus==0">
-                      <!-- <div class="img">
-                        <img src="@/assets/imgwx/ic_party.png" alt="">
-                      </div> -->
+                    <!-- <span>{{one.ocVote}}</span> -->
+                    <!-- <div class="status" v-if="one.opStatus==0">
                       <p style="line-height: 0.6rem;">未开始</p>
                     </div>
                     <div class="status" v-if="one.opStatus==1 && one.flag == 0" @click.stop="vote(one)">
-                      <!-- <div class="img">
-                        <img src="@/assets/imgwx/ic_party.png" alt="">
-                      </div> -->
                       <p style="line-height: 0.6rem;">请您听宣讲</p>
                     </div>
                     <div class="status" v-if="one.opStatus==1 && one.flag == 1" @click.stop="hasVoted()">
-                      <!-- <div class="img">
-                        <img src="@/assets/imgwx/ic_party.png" alt="">
-                      </div> -->
                       <p style="line-height: 0.6rem;">请您听宣讲</p>
                     </div>
                     <div class="status" v-if="one.opStatus==2">
-                      <!-- <div class="img">
-                        <img src="@/assets/imgwx/ic_party.png" alt="">
-                      </div> -->
                       <p style="line-height: 0.6rem;">已结束</p>
-                    </div>
+                    </div> -->
                   </div>
-                  <div class="number">{{ one.ocNumber }}</div>
+                  <!-- <div class="number">{{ one.ocNumber }}</div> -->
                 </li>
               </ul>
                </van-list>
@@ -168,42 +162,22 @@
        </div>
 
       </div>
-      <!-- backhome -->
-      <div class="back_home" @click="back('/')">
-        <img src="@/assets/imgwx/backlogo.png" alt="">
-      </div>
-      <!-- 分享 返回顶部 -->
-      <!-- 悬浮按钮 -->
-      <div class="top-share">
-        <div class="listleft" @click="shareAlert()">
-          <img src="@/assets/imgwx/wx_share.png" alt />
-        </div>
-        <div class="listtwo" @click="toTo()">
-          <img src="@/assets/imgwx/backtop.png" alt />
-          <!-- <span>返回<br>顶部</span> -->
-        </div>
-      </div>
-      <!--微信分享指示-->
-      <div
-        class="hom-sharewraper"
-        id="hom-sharewraper"
-        style="display: none"
-        @click="closedAlert()"
-      >
-        <img src="@/assets/imgwx/share-alert.png" />
-      </div>
+      <shareBack></shareBack>
+
     </div>
   </div>
 </template>
 <script>
 import navBar from './components/navigatonBar'
+import shareBack from './components/shareAndback'
 import QRCode from 'qrcodejs2'
 import Pagination from '@/components/Pagination'
 import { mapGetters } from 'vuex'
 export default {
   components: {
     Pagination,
-    navBar
+    navBar,
+    shareBack
   },
   computed: {
     ...mapGetters(['isMobile', 'userInfo'])
@@ -217,72 +191,13 @@ export default {
       currentPage: 1,
       pictureList: [],
       searchSort: 3,
+      teamCode: null,
       finished: false,
       loading: false,
       url: window.location.href
     }
   },
   methods: {
-    vote(item) {
-      // 判断是否登录
-      console.log('userInfo', this.userInfo)
-      if (!this.userInfo) {
-        if (this.isMobile) {
-          this.$dialog.confirm({
-            title: '提示',
-            message: '您还未登录，立即去登录?',
-            confirmButtonText: '确定',
-            cancelButtonText: '取消',
-            type: 'warning'
-          }).then(() => {
-            this.$store.commit('SET_BACKROUTER', `${this.$route.fullPath}`)
-            this.$router.push({ path: '/login' })
-          }).catch(() => {
-            // on cancel
-          })
-        } else {
-          this.$confirm('您还未登录，立即去登录?', '提示', {
-            confirmButtonText: '确定',
-            cancelButtonText: '取消',
-            type: 'warning'
-          }).then(() => {
-            this.$store.commit('SET_LOGINSTATE', true)
-          }).catch(() => {
-
-          })
-        }
-      } else {
-        const params = {}
-        const _this = this
-        // 防止重复提交
-        if (!this.flag) {
-          this.flag = true
-          params.ocCode = item.ocCode
-          params.opClientType = 'CLIENT_WX'
-          params.operateCode = 'c0612dbe-b2ec-11eb-8ecb-b8599f37e6f0'
-          this.$apis.userVote(params).then((res) => {
-            if (res.data.status.returnCode === 100) {
-              _this.flag = false
-              _this.$toast.success('送党徽成功')
-              item.ocVote++
-              if (!res.data.data.list[0]) {
-                item.flag = 0
-              } else {
-                item.flag = 1
-              }
-              return
-            }
-            if (res.data.status.returnCode === 354) {
-              _this.$toast.fail('未到送党徽时间段')
-              _this.flag = false
-            } else {
-              _this.$toast.fail('送党徽失败，请稍后操作')
-              _this.flag = false
-            }
-          })
-        }
-      }
-    },
     insertRead() {
       // const _this = this
       const params = {}
@@ -334,7 +249,7 @@ export default {
       document.getElementById('hom-sharewraper').style.display = 'none'
     },
     search() {
-      this.list = []
+      this.pictureList = []
       this.currentPage = 1
       this.finished = false
       this.getPictureList()
@@ -345,13 +260,8 @@ export default {
       this.pictureList = []
       this.getPictureList()
     },
-    searchwx() {
-      this.list = []
-      this.finished = false
-      this.getPictureList()
-    },
     changeSearchSort(num) {
-      this.searchSort = num
+      this.teamCode = num
       this.currentPage = 1
       this.pictureList = []
       this.getPictureList()
@@ -367,7 +277,7 @@ export default {
       params.pageSize = 15
       params.ocName = _this.ocName
       params.pageNum = _this.currentPage
-      params.searchSort = this.searchSort
+      params.teamCode = _this.teamCode
       this.$apis.getList(params).then((res) => {
         if (_this.isMobile) {
           // 加载状态结束
@@ -407,30 +317,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.top-share {
-  position: fixed;
-  right: 0;
-  top: 7.6rem;
-  z-index: 99;
-  /* z-index: 999;s */
-  .listleft {
-    width: 1.2rem;
-    height: 1.2rem;
-    img {
-      width: 100%;
-      height: 100%;
-    }
-  }
-  .listtwo {
-    margin-top: 0.5rem;
-    width: 1.2rem;
-    height: 1.2rem;
-    img {
-      width: 100%;
-      height: 100%;
-    }
-  }
-}
+
 .hom-sharewraper {
   position: fixed;
   top: 0;

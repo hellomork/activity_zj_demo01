@@ -5,13 +5,13 @@
       <div class="pic_bg">
         <div class="act-container clearfix">
           <div class="kada_title_zj">
-            <img src="@/assets/img/pc/img_title2.png" alt="" />
+            <img src="@/assets/img/pc/img_title3.png" alt="" />
           </div>
           <div class="boder">
             <div class="picshow1">
               <ul class="clearfix">
                 <li
-                  v-for="(one, index) in Data.news"
+                  v-for="(one, index) in Data.report"
                   :key="index"
                   @click="toPath(one.ocUri)"
                 >
@@ -44,7 +44,7 @@
             </div> -->
             <div
               class="news_list"
-              v-for="(news, index) in Data.news"
+              v-for="(news, index) in Data.report"
               :key="index"
               @click="toPath(news.ocUri)"
             >
@@ -54,16 +54,15 @@
           </div>
         </div>
       </div>
-  <shareBack></shareBack>
+        <shareBack></shareBack>
     </div>
   </div>
 </template>
 <script>
-import QRCode from 'qrcodejs2'
 import Data from '@/data/staticData'
 import { mapGetters } from 'vuex'
-import navBar from './components/navigatonBar'
 import shareBack from './components/shareAndback'
+import navBar from './components/navigatonBar'
 import wxService from '@/api/wxService'
 var imgURrl = require('@/assets/imgwx/shareicon.png')
 export default {
@@ -84,50 +83,8 @@ export default {
     }
   },
   methods: {
-    back() {
-      this.$router.push({ path: '/' })
-    },
-    goUp() {
-      let top = document.documentElement.scrollTop || document.body.scrollTop
-      // 实现滚动效果
-      const timeTop = setInterval(() => {
-        document.body.scrollTop = document.documentElement.scrollTop = top -= 50
-        if (top <= 0) {
-          clearInterval(timeTop)
-        }
-      }, 10)
-    },
     toPath(path) {
       window.open(path)
-    },
-    toTo() {
-      window.scrollTo(0, 0)
-    },
-    showQrcode() {
-      var url = this.url
-      this.$refs.qrcode.innerHTML = ''
-      this.qrcodeFlag = true
-      this.creatQrcode(url)
-      console.log(url)
-    },
-    hideQrcode() {
-      this.qrcodeFlag = false
-      this.$refs.qrcode.innerHTML = ''
-    },
-    creatQrcode(text) {
-      this.qrcode = new QRCode('qrcode', {
-        width: 90,
-        height: 90,
-        text: text, // 二维码地址
-        colorDark: '#000',
-        colorLight: '#fff'
-      })
-    },
-    shareAlert() {
-      document.getElementById('hom-sharewraper').style.display = 'block'
-    },
-    closedAlert() {
-      document.getElementById('hom-sharewraper').style.display = 'none'
     }
   },
   mounted() {

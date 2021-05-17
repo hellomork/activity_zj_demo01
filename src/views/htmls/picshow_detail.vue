@@ -21,8 +21,8 @@
             <p v-for="(x, index) in kadaDesList" :key="index">{{ x }}</p>
           </div>
         </div>
-        <div class="r" @click="toDetail(detail)">
-          <div class="img">
+        <div class="r" >
+          <div class="img" @click="toDetail(detail)">
             <img :src="characterCover" alt="" />
           </div>
           <h3>{{ detail.ocWrite }}</h3>
@@ -44,8 +44,8 @@
     <div class="wx_picshow_detail" v-if="isMobile">
       <h3>{{ detail.ocName }}</h3>
       <p>{{ detail.ocComposingWords }} {{ detail.ocComposingMusic }}</p>
-      <div class="describe clearfix">
-        <div class="l"  @click="toDetail(detail)">
+      <div class="describe clearfix"  @click="toDetail(detail)">
+        <div class="l" >
           <img :src="characterCover" alt="" />
         </div>
         <div class="c">
@@ -62,33 +62,36 @@
       <div class="title">
          <p v-for="(x, index) in kadaDesList" :key="index">{{ x }}</p>
       </div>
+        <shareBack></shareBack>
     </div>
   </div>
 </template>
 <script>
 import { mapGetters } from 'vuex'
 import QRCode from 'qrcodejs2'
+import shareBack from './components/shareAndback'
 import navBar from './components/navigatonBar'
 import Data from '@/data/staticData'
 export default {
   computed: {
-    ...mapGetters(['isMobile', 'userInfo']),
+    ...mapGetters(['isMobile', 'userInfo'])
   },
   components: {
     navBar,
+    shareBack
   },
   data() {
     return {
       detail: '',
       kadaDesList: [],
       Data: {
-        character: {},
+        character: {}
       },
       characterCover: '',
       characterTheme: '',
       qrcodeFlag: false,
       ocCode: this.$route.params.ocCode,
-      url: window.location.href,
+      url: window.location.href
     }
   },
   methods: {
@@ -97,7 +100,7 @@ export default {
         name: 'character_detail',
         params: {
           ocCode: x.ocWrite
-        },
+        }
       })
     },
     getDetail() {
@@ -120,7 +123,7 @@ export default {
         height: 90,
         text: text, // 二维码地址
         colorDark: '#000',
-        colorLight: '#fff',
+        colorLight: '#fff'
       })
     },
     showQrcode() {
@@ -133,12 +136,12 @@ export default {
     hideQrcode() {
       this.qrcodeFlag = false
       this.$refs.qrcode.innerHTML = ''
-    },
+    }
   },
   mounted() {
     this.getDetail()
     this.Data = Data
-  },
+  }
 }
 </script>
 <style lang="scss" scoped>
@@ -186,7 +189,7 @@ export default {
       background-color: #FDF4E4;
       padding: 0.05rem;
       // display: flex;
-      
+
       .l{
         float: left;
         width: 1.3rem;

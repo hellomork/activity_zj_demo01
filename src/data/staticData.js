@@ -1,66 +1,108 @@
 ﻿
 var jsonData = {
   // 首页只展示5个的人物雕塑研讨会
-  'characterFive':{
-    '专家1':{
-      'name':'专家1',   
-      'cover':'http://whgypt.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/cloud/www.zjart.com/2021-04-28/1619600219109_jBpFzm23.jpg',
-      'theme':'当代语境下革命历史题材雕塑创作的可能性走向', //研讨主题
-      'brief':'第一段brief@kada第二段', //专家介绍
-      'content':'第一段content@kada第二段', //内容概述
+  'characterFive': {
+    '专家1': {
+      'name': '专家1',
+      'cover': 'http://whgypt.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/cloud/www.zjart.com/2021-04-28/1619600219109_jBpFzm23.jpg',
+      'theme': '当代语境下革命历史题材雕塑创作的可能性走向', // 研讨主题
+      'brief': '第一段brief@kada第二段', // 专家介绍
+      'content': '第一段content@kada第二段' // 内容概述
     },
-    '专家2':{
-      'name':'专家2',   
-      'cover':'http://whgypt.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/cloud/www.zjart.com/2021-04-28/1619600219109_jBpFzm23.jpg',
-      'theme':'当代语境下革命历史题材雕塑创作的可能性走向', //研讨主题
-      'brief':'第一段brief@kada第二段', //专家介绍
-      'content':'第一段content@kada第二段', //内容概述
-    }, 
-    '专家3':{
-      'name':'专家3',   
-      'cover':'http://whgypt.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/cloud/www.zjart.com/2021-04-28/1619600219109_jBpFzm23.jpg',
-      'theme':'当代语境下革命历史题材雕塑创作的可能性走向', //研讨主题
-      'brief':'第一段brief@第一段brief', //专家介绍
-      'content':'第一段content@kada第二段', //内容概述
-    } ,
-    '专家4':{
-      'name':'专家4',   
-      'cover':'http://whgypt.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/cloud/www.zjart.com/2021-04-28/1619600219109_jBpFzm23.jpg',
-      'theme':'当代语境下革命历史题材雕塑创作的可能性走向', //研讨主题
-      'brief':'第一段brief@kada第二段', //专家介绍
-      'content':'第一段content@kada第二段', //内容概述
-    } 
+    '专家2': {
+      'name': '专家2',
+      'cover': 'http://whgypt.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/cloud/www.zjart.com/2021-04-28/1619600219109_jBpFzm23.jpg',
+      'theme': '当代语境下革命历史题材雕塑创作的可能性走向', // 研讨主题
+      'brief': '第一段brief@kada第二段', // 专家介绍
+      'content': '第一段content@kada第二段' // 内容概述
+    },
+    '专家3': {
+      'name': '专家3',
+      'cover': 'http://whgypt.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/cloud/www.zjart.com/2021-04-28/1619600219109_jBpFzm23.jpg',
+      'theme': '当代语境下革命历史题材雕塑创作的可能性走向', // 研讨主题
+      'brief': '第一段brief@第一段brief', // 专家介绍
+      'content': '第一段content@kada第二段' // 内容概述
+    },
+    '专家4': {
+      'name': '专家4',
+      'cover': 'http://whgypt.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/cloud/www.zjart.com/2021-04-28/1619600219109_jBpFzm23.jpg',
+      'theme': '当代语境下革命历史题材雕塑创作的可能性走向', // 研讨主题
+      'brief': '第一段brief@kada第二段', // 专家介绍
+      'content': '第一段content@kada第二段' // 内容概述
+    }
   },
-  // 人物列表页展示
-  'character':{
-    '专家1':{
-      'name':'专家1',   
-      'cover':'http://whgypt.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/cloud/www.zjart.com/2021-04-28/1619600219109_jBpFzm23.jpg',
-      'theme':'测试下革命历史题材雕塑创作的可能性走向', //研讨主题
-      'brief':'第一段brief@kada第二段', //专家介绍
-      'content':'第一段content@kada第二段', //内容概述
+  // 人物雕塑研讨会列表页展示
+  'character': {
+    '专家1': {
+      'name': '专家1',
+      'cover': 'http://whgypt.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/cloud/www.zjart.com/2021-04-28/1619600219109_jBpFzm23.jpg',
+      'theme': '测试下革命历史题材雕塑创作的可能性走向', // 研讨主题
+      'brief': '第一段brief@kada第二段', // 专家介绍
+      'content': '第一段content@kada第二段' // 内容概述
     },
-    '专家2':{
-      'name':'专家2',   
-      'cover':'http://whgypt.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/cloud/www.zjart.com/2021-04-28/1619600219109_jBpFzm23.jpg',
-      'theme':'第二个语境下革命历史题材雕塑创作的可能性走向', //研讨主题
-      'brief':'第一段brief@kada第二段', //专家介绍
-      'content':'第一段content@kada第二段', //内容概述
-    }, 
-    '专家3':{
-      'name':'专家3',   
-      'cover':'http://whgypt.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/cloud/www.zjart.com/2021-04-28/1619600219109_jBpFzm23.jpg',
-      'theme':'专家3革命历史题材雕塑', //研讨主题
-      'brief':'第一段brief@kada第二段', //专家介绍
-      'content':'第一段content@kada第二段', //内容概述
-    } ,
-    '专家4':{
-      'name':'专家4',   
-      'cover':'http://whgypt.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/cloud/www.zjart.com/2021-04-28/1619600219109_jBpFzm23.jpg',
-      'theme':'专家4革命历史题材雕塑', //研讨主题
-      'brief':'第一段brief@kada第二段', //专家介绍
-      'content':'第一段content@kada第二段', //内容概述
-    } 
+    '专家2': {
+      'name': '专家2',
+      'cover': 'http://whgypt.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/cloud/www.zjart.com/2021-04-28/1619600219109_jBpFzm23.jpg',
+      'theme': '第二个语境下革命历史题材雕塑创作的可能性走向', // 研讨主题
+      'brief': '第一段brief@kada第二段', // 专家介绍
+      'content': '第一段content@kada第二段' // 内容概述
+    },
+    '专家3': {
+      'name': '专家3',
+      'cover': 'http://whgypt.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/cloud/www.zjart.com/2021-04-28/1619600219109_jBpFzm23.jpg',
+      'theme': '专家3革命历史题材雕塑', // 研讨主题
+      'brief': '第一段brief@kada第二段', // 专家介绍
+      'content': '第一段content@kada第二段' // 内容概述
+    },
+    '专家4': {
+      'name': '专家4',
+      'cover': 'http://whgypt.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/cloud/www.zjart.com/2021-04-28/1619600219109_jBpFzm23.jpg',
+      'theme': '专家4革命历史题材雕塑', // 研讨主题
+      'brief': '第一段brief@kada第二段', // 专家介绍
+      'content': '第一段content@kada第二段' // 内容概述
+    },
+    '专家5': {
+      'name': '专家5',
+      'cover': 'http://whgypt.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/cloud/www.zjart.com/2021-04-28/1619600219109_jBpFzm23.jpg',
+      'theme': '测试下革命历史题材雕塑创作的可能性走向', // 研讨主题
+      'brief': '第一段brief@kada第二段', // 专家介绍
+      'content': '第一段content@kada第二段' // 内容概述
+    },
+    '专家6': {
+      'name': '专家6',
+      'cover': 'http://whgypt.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/cloud/www.zjart.com/2021-04-28/1619600219109_jBpFzm23.jpg',
+      'theme': '第二个语境下革命历史题材雕塑创作的可能性走向', // 研讨主题
+      'brief': '第一段brief@kada第二段', // 专家介绍
+      'content': '第一段content@kada第二段' // 内容概述
+    },
+    '专家7': {
+      'name': '专家7',
+      'cover': 'http://whgypt.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/cloud/www.zjart.com/2021-04-28/1619600219109_jBpFzm23.jpg',
+      'theme': '专家3革命历史题材雕塑', // 研讨主题
+      'brief': '第一段brief@kada第二段', // 专家介绍
+      'content': '第一段content@kada第二段' // 内容概述
+    },
+    '专家8': {
+      'name': '专家8',
+      'cover': 'http://whgypt.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/cloud/www.zjart.com/2021-04-28/1619600219109_jBpFzm23.jpg',
+      'theme': '专家4革命历史题材雕塑', // 研讨主题
+      'brief': '第一段brief@kada第二段', // 专家介绍
+      'content': '第一段content@kada第二段' // 内容概述
+    },
+    '专家9': {
+      'name': '专家9',
+      'cover': 'http://whgypt.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/cloud/www.zjart.com/2021-04-28/1619600219109_jBpFzm23.jpg',
+      'theme': '专家4革命历史题材雕塑', // 研讨主题
+      'brief': '第一段brief@kada第二段', // 专家介绍
+      'content': '第一段content@kada第二段' // 内容概述
+    },
+    '专家10': {
+      'name': '专家10',
+      'cover': 'http://whgypt.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/cloud/www.zjart.com/2021-04-28/1619600219109_jBpFzm23.jpg',
+      'theme': '专家4革命历史题材雕塑', // 研讨主题
+      'brief': '第一段brief@kada第二段', // 专家介绍
+      'content': '第一段content@kada第二段' // 内容概述
+    }
   },
   // 开幕活动
   'implement': [

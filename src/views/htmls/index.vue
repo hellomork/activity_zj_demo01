@@ -150,18 +150,20 @@
           <!-- 红色主题雕塑研讨会 -->
           <div class="character" id="tab6">
             <ul class="clearfix">
-              <div v-for="(value, key) in Data.characterFive" :key="key">
-                <li @click="toDetail(value, 4)">
-                  <div class="cover">
-                    <img :src="value.cover" alt="" />
-                    <div class="shadow"></div>
-                  </div>
-                  <div class="title">
-                    <h3>{{ value.name }}</h3>
-                    <p>{{ value.theme | substr(10) }}</p>
-                  </div>
-                </li>
-              </div>
+              <li
+                @click="toDetail(value, 4)"
+                v-for="(value, key) in Data.characterFive"
+                :key="key"
+              >
+                <div class="cover">
+                  <img :src="value.cover" alt="" />
+                  <div class="shadow"></div>
+                </div>
+                <div class="title">
+                  <h3>{{ value.name }}</h3>
+                  <p>{{ value.theme | substr(10) }}</p>
+                </div>
+              </li>
             </ul>
           </div>
           <div class="kada_title_zj">
@@ -290,23 +292,25 @@
         </div>
         <div class="nav_choose_list">
           <ul>
-            <li :class="{ active1: navNum == 1 }" @click="toNav(1)">首页</li>
-            <li :class="{ active2: navNum == 2 }" @click="toNav(2)">
+            <li :class="{ active1: navNum == 1 }" @click.stop="toNav(1)">
+              首页
+            </li>
+            <li :class="{ active2: navNum == 2 }" @click.stop="toNav(2)">
               开幕活动
             </li>
-            <li :class="{ active3: navNum == 3 }" @click="toNav(3)">
+            <li :class="{ active3: navNum == 3 }" @click.stop="toNav(3)">
               活动报道
             </li>
-            <li :class="{ active4: navNum == 4 }" @click="toNav(4)">
+            <li :class="{ active4: navNum == 4 }" @click.stop="toNav(4)">
               红色主题雕塑展
             </li>
-            <li :class="{ active5: navNum == 5 }" @click="toNav(5)">
+            <li :class="{ active5: navNum == 5 }" @click.stop="toNav(5)">
               红色主题雕塑研讨会
             </li>
-            <li :class="{ active6: navNum == 6 }" @click="toNav(6)">
+            <li :class="{ active6: navNum == 6 }" @click.stop="toNav(6)">
               各地红色主题展
             </li>
-            <li :class="{ active7: navNum == 7 }" @click="toNav(7)">
+            <li :class="{ active7: navNum == 7 }" @click.stop="toNav(7)">
               迎党百年 享美好生活系列活动
             </li>
           </ul>
@@ -339,10 +343,11 @@
             <div class="lunbo">
               <swiper :options="lunboSwiper" ref="lunboSwiper">
                 <swiper-slide
-class="lunslide"
-v-for="(item, index) in implement"
+                  class="lunslide"
+                  v-for="(item, index) in implement"
                   :key="index"
-                  @click="toOpenImplement(item)">
+                  @click="toOpenImplement(item)"
+                >
                   <img :src="item.picture" alt="" />
                 </swiper-slide>
               </swiper>
@@ -378,36 +383,42 @@ v-for="(item, index) in implement"
                   </li>
                 </ul>
               </div>
-              <div class="articl1e" v-if="numChange==1">
+              <div class="articl1e" v-if="numChange == 1">
                 <ul>
                   <li
-v-for="(item, index) in Data.news"
-                      v-show="index < 5"
-                      :key="index"
-                      @click="toDetail(item, 1)">
+                    v-for="(item, index) in Data.news"
+                    v-show="index < 4"
+                    :key="index"
+                    @click="toDetail(item, 1)"
+                  >
                     <h3>{{ item.ocName | substr(20) }}</h3>
                     <span>{{ item.ocTime }}</span>
                   </li>
                 </ul>
               </div>
-               <div class="articl1e" v-if="numChange==2">
+              <div class="articl1e" v-if="numChange == 2">
                 <ul>
                   <li
-v-for="(item, index) in Data.report"
-                      v-show="index < 5"
-                      :key="index"
-                      @click="toDetail(item, 2)">
+                    v-for="(item, index) in Data.report"
+                    v-show="index < 4"
+                    :key="index"
+                    @click="toDetail(item, 2)"
+                  >
                     <h3>{{ item.ocName | substr(20) }}</h3>
                     <span>{{ item.ocTime }}</span>
                   </li>
                 </ul>
               </div>
             </div>
-            <div class="ic_more" v-if="numChange==1" @click="toList('/news')">
+            <div class="ic_more" v-if="numChange == 1" @click="toList('/news')">
               <p>查看更多</p>
               <img src="@/assets/imgwx/ic_more.png" alt="" />
             </div>
-              <div class="ic_more" v-if="numChange==2" @click="toList('/report')">
+            <div
+              class="ic_more"
+              v-if="numChange == 2"
+              @click="toList('/report')"
+            >
               <p>查看更多</p>
               <img src="@/assets/imgwx/ic_more.png" alt="" />
             </div>
@@ -421,9 +432,10 @@ v-for="(item, index) in Data.report"
             <div class="bord">
               <ul>
                 <li
-v-for="(x, index) in pickList"
-                :key="index"
-                @click="toDetail(x, 3)">
+                  v-for="(x, index) in pickList"
+                  :key="index"
+                  @click="toDetail(x, 3)"
+                >
                   <div class="cover">
                     <img :src="x.ocCover" alt="" />
                   </div>
@@ -432,7 +444,7 @@ v-for="(x, index) in pickList"
                 </li>
               </ul>
             </div>
-            <div class="ic_more"  @click="toList('/picshow')">
+            <div class="ic_more" @click="toList('/picshow')">
               <p>查看更多</p>
               <img src="@/assets/imgwx/ic_more.png" alt="" />
             </div>
@@ -445,12 +457,16 @@ v-for="(x, index) in pickList"
             </div>
             <div class="bord">
               <ul>
-                <li v-for="(value, key) in Data.characterFive" :key="key"  @click="toDetail(value, 4)">
+                <li
+                  v-for="(value, key) in Data.characterFive"
+                  :key="key"
+                  @click="toDetail(value, 4)"
+                >
                   <div class="cover">
                     <img :src="value.cover" alt="" />
                   </div>
                   <h3>{{ value.name }}</h3>
-                  <p>{{ value.theme | substr(8) }}</p>
+                  <p>{{ value.theme | substr(7) }}</p>
                 </li>
               </ul>
             </div>
@@ -468,10 +484,11 @@ v-for="(x, index) in pickList"
             <div class="bord">
               <ul>
                 <li
-v-for="(x, index) in Data.theme"
-                  v-show="index < 5"
+                  v-for="(x, index) in Data.theme"
+                  v-show="index < 4"
                   :key="index"
-                  @click="toDetail(x, 5)">
+                  @click="toDetail(x, 5)"
+                >
                   <div class="cover">
                     <img :src="x.picture" alt="" />
                   </div>
@@ -493,18 +510,6 @@ v-for="(x, index) in Data.theme"
             </div>
             <div class="bord">
               <ul>
-                <li>
-                  <h3>我是作品名称</h3>
-                  <img src="@/assets/imgwx/new/back.png" alt="" />
-                </li>
-                <li>
-                  <h3>我是作品名称</h3>
-                  <img src="@/assets/imgwx/new/back.png" alt="" />
-                </li>
-                <li>
-                  <h3>我是作品名称</h3>
-                  <img src="@/assets/imgwx/new/back.png" alt="" />
-                </li>
                 <li>
                   <h3>我是作品名称</h3>
                   <img src="@/assets/imgwx/new/back.png" alt="" />
@@ -628,16 +633,16 @@ export default {
 
   methods: {
     toDetail(x, num) {
-      if (num == 1 || num == 2) {
+      if (num === 1 || num === 2) {
         window.open(x.ocUri)
-      } else if (num == 3) {
+      } else if (num === 3) {
         this.$router.push({
           name: 'picshow_detail',
           params: {
             ocCode: x.ocCode
           }
         })
-      } else if (num == 4) {
+      } else if (num === 4) {
         this.$router.push({
           name: 'character_detail',
           params: {
@@ -670,6 +675,8 @@ export default {
       } else {
         document.getElementById('top_cont').style.display = 'block'
       }
+      document.getElementById('nav_list_box').style.display = 'none'
+      this.$refs.closeImg.style.display = 'block'
       this.$refs.scrollSwiper.$swiper.slideTo(num - 1, 1000, false)
     },
     changeChick(num) {
@@ -754,7 +761,7 @@ export default {
     }
   },
   created() {
-    this.wxIphoneHeight = window.screen.availHeight
+    this.wxIphoneHeight = document.documentElement.clientHeight
   },
   mounted() {
     this.Data = Data
