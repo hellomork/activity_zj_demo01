@@ -112,6 +112,7 @@ import Data from '@/data/staticData'
 import shareBack from './components/shareAndback'
 import navBar from './components/navigatonBar'
 import QRCode from 'qrcodejs2'
+import wxService from '@/api/wxService'
 export default {
   computed: {
     ...mapGetters(['isMobile', 'userInfo'])
@@ -181,6 +182,14 @@ export default {
     this.characterDetail = this.Data.character[this.ocCode]
     this.characterBriefList = this.characterDetail.brief.split('@kada')
     this.characterContentList = this.characterDetail.content.split('@kada')
+    if (this.isMobile) {
+      var shareConfig = {}
+      shareConfig.currentTitle = '#' + this.characterDetail.theme + '##' + this.characterDetail.ocName + '#'
+      shareConfig.share_url = window.location.origin + '/21dxdz/character_detail/' + this.ocCode
+      shareConfig.currentDetail = '红色主题雕塑研讨会'
+      // console.log('分享参数：', shareConfig)
+      wxService.setWXConfig(shareConfig)
+    }
   }
 }
 </script>

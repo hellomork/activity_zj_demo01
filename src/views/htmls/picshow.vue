@@ -171,8 +171,10 @@
 import navBar from './components/navigatonBar'
 import shareBack from './components/shareAndback'
 import QRCode from 'qrcodejs2'
+import wxService from '@/api/wxService'
 import Pagination from '@/components/Pagination'
 import { mapGetters } from 'vuex'
+var imgURrl = require('@/assets/imgwx/shareicon.png')
 export default {
   components: {
     Pagination,
@@ -312,6 +314,14 @@ export default {
   mounted() {
     if (!this.isMobile) {
       this.getPictureList()
+    } else {
+      var shareConfig = {}
+      shareConfig.currentTitle = '“迎建党百年 享美好生活”浙江省喜迎建党百年红色主题雕塑展'
+      shareConfig.share_url = window.location.href
+      shareConfig.currentCover = window.location.origin + '/21dxdz/' + imgURrl
+      shareConfig.currentDetail = '6月11日，与您相约'
+      // console.log('分享参数：', shareConfig)
+      wxService.setWXConfig(shareConfig)
     }
   }
 }

@@ -107,10 +107,10 @@ export default {
     this.Data = Data
     if (this.isMobile) {
       var shareConfig = {}
-      shareConfig.currentTitle = '“群星璀璨共谱时代华章”浙江省红色主题雕塑大展'
+      shareConfig.currentTitle = '“迎建党百年 享美好生活”浙江省喜迎建党百年红色主题雕塑展'
       shareConfig.share_url = window.location.href
       shareConfig.currentCover = window.location.origin + '/21dxdz/' + imgURrl
-      shareConfig.currentDetail = '11月21日，与您相约'
+      shareConfig.currentDetail = '6月11日，与您相约'
       // console.log('分享参数：', shareConfig)
       wxService.setWXConfig(shareConfig)
     }

@@ -72,6 +72,7 @@ import QRCode from 'qrcodejs2'
 import shareBack from './components/shareAndback'
 import navBar from './components/navigatonBar'
 import Data from '@/data/staticData'
+import wxService from '@/api/wxService'
 export default {
   computed: {
     ...mapGetters(['isMobile', 'userInfo'])
@@ -111,6 +112,7 @@ export default {
       params.ocCode = this.ocCode
       this.$apis.getList(params).then((res) => {
         _this.detail = res.data.data.list[0]
+        _this.share(_this.detail)
         _this.kadaDesList = _this.detail.content.split('@kada')
         _this.characterCover = this.Data.character[_this.detail.ocWrite].cover
         _this.characterTheme = this.Data.character[_this.detail.ocWrite].theme
@@ -136,6 +138,16 @@ export default {
     hideQrcode() {
       this.qrcodeFlag = false
       this.$refs.qrcode.innerHTML = ''
+    },
+    share(item) {
+      if (this.isMobile) {
+        var shareConfig = {}
+        shareConfig.currentTitle = item.ocName
+        shareConfig.share_url = window.location.origin + '/21dxdz/picshow_detail/' + this.ocCode
+        shareConfig.currentDetail = '红色主题雕塑大展'
+        // console.log('分享参数：', shareConfig)
+        wxService.setWXConfig(shareConfig)
+      }
     }
   },
   mounted() {
